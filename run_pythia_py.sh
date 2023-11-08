@@ -23,18 +23,11 @@ sqrts=200
 sys_name="pp"$sqrts"GeV"
 #sys_name="PbPb"$sqrts"GeV"
 #
-scratch="/media/moschelli/scratch1/moschelli/pythia_results/"
-ext1="/media/moschelli/external1/moschelli/pythia_results/"
-ext21="/media/moschelli/external21/moschelli/pythia_results/"
-#
 #source code location
-pgm_loc="/home/moschelli/Dropbox/Research/pythia_python/"
+pgm_loc="/path_to_folder/pythia_python/"
 src_loc=$pgm_loc"src/"
-# conda environment location (where phytia is installed)
-env_loc="/media/moschelli/scratch1/moschelli/pythia_python/env/"
 #
 #location to place .root file with pythia events
-#res_loc=$ext21"events/"$sys_name"/"
 res_loc=$pgm_loc"out/"
 #
 #
@@ -117,8 +110,6 @@ echo "Running PlotAnalysis for "$sys_name
 #
 # change directories to the project directory
 cd $src_loc
-# activate the conda environment where pythia is installed
-#conda activate $env_loc
 #
 # run several instances of RunPythia in parallel and uniquely name the outputs uing the n
 for(( n=0; n<nCores; n++)) 
@@ -132,6 +123,4 @@ do
 	sleep 1
 
 done
-
-#deactivate the conda environment
-#conda deactivate
+#
